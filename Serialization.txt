@@ -1,4 +1,4 @@
-
+//this project is created just for the understanding purpose
 FileOutputStream   //class which has details about the  file
 ObjectOutputStream  //class which writes the obj to the file
 
