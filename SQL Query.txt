@@ -1,0 +1,85 @@
+Server=localhost\MSSQLSERVER01;Database=master;Trusted_Connection=True;
+
+jdbc:sqlserver://[serverName[instanceName][:portNumber]][;property=value[;property=value]] 
+jdbc:sqlserver://MSSQLSERVER:1433
+
+jdbc:sqlserver://LAPTOP-5AEMEI4R/MSSQLSERVER:1433
+
+
+
+C:\Windows\SysWOW64  -->SQL Server manager port(SQLServerManager15)
+create Database Makesh  -->To create a database
+
+SELECT name, database_id, create_date FROM sys.databases ;  -->to display the database 
+
+SELECT table_name, table_schema, table_type FROM information_schema.tables ORDER BY table_name ASC;  --?\>to display table names
+
+select DB_NAME() as [Current Database] to check in which db we are working
+
+create table Employe(id int , name varchar(50),address text,email varchar(50), phone varchar(10));  -->to create a table
+
+select host_name ()  -->hostname
+SELECT @@SERVERNAME -->server name
+select user_name()
+SELECT @@SERVICENAME AS 'SQL Server Instance Name';  -->to find server instance name
+
+exec sp_help tablename  ->to get the data type and column name of a table
+
+select *from employe  -->to select the table
+
+EXEC sp_columns employe;  ->To view the description of the tables in the database 
+
+Inserting single value :
+insert into Employe
+values('1788653','Makesh','Udangudi,Thoothukudi','makeshravindran99@gmail.com','7904037251')  -->to insert values into table
+insert into Employe(id  , name ,address ,email , phone )
+
+Inserting Multipple value :
+insert into employe
+values('1788653','Makesh1','Udangudi,Thoothukudi1','makeshravindran98@gmail.com','7904037251'),
+('1788653','Makesh2','Udangudi,Thoothukudi2','makeshravindran97@gmail.com','7904037251'),
+('1788653','Makesh3','Udangudi,Thoothukudi3','makeshravindran96@gmail.com','7904037251')
+
+
+select count(*) from employe  -->to check  count(rows) 
+ 
+select * from employe where name='makesh' -->select with filter
+ 
+select top(3) name from employe -->to select top 3 rows with particular  column vvalue from table
+ 
+select top(3) * from employe -->to select top rows from a table
+
+Use master
+GO
+Select value_data as [Port Number] From sys.dm_server_registry Where registry_key like '%IPALL%' and value_name ='TcpPort'  -->to find port number   
+
+
+UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;       
+update pojo set id='100' where name='makesh'
+
+ convert(VARCHAR,address)
+select distinct name from Employe where convert(VARCHAR,address)='africa'
+
+-->address is of type varchar but if we give search parameter as test then we need to use convert
+You can't compare text to varchar, but as an answer to anyone in the future with this problem simply convert the text column to varchar for the query.
+
+select * from employe where id between '102' and '105'  -->includes 102 and 105 also
+
+select * from employe where address like '%thoo%'  -->special characters %->multiple characters
+select * from employe where name like 'makes_'    -->special characters    _->single characters
+
+insert into employe (id,name)values('199','mahimakesh')  -->can insert values to specific column alone. Rest of the column value will be asigned as null
+(If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a NULL value.)
+
+select top 25 percent * from  employe  -->selects top 25 percent of records
+
+alter table school add id int   -->to alter an existing table
+
+alter table employe alter column address varchar(50);  -->to change the data type
+
+Here are the different types of the JOINs in SQL:
+
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
