@@ -10,6 +10,8 @@ jdbc:sqlserver://LAPTOP-5AEMEI4R/MSSQLSERVER:1433
 C:\Windows\SysWOW64  -->SQL Server manager port(SQLServerManager15)
 create Database Makesh  -->To create a database
 
+this one i have created for my understanding purpose
+
 SELECT name, database_id, create_date FROM sys.databases ;  -->to display the database 
 
 SELECT table_name, table_schema, table_type FROM information_schema.tables ORDER BY table_name ASC;  --?\>to display table names
@@ -26,6 +28,8 @@ SELECT @@SERVICENAME AS 'SQL Server Instance Name';  -->to find server instance 
 exec sp_help tablename  ->to get the data type and column name of a table
 
 select *from employe  -->to select the table
+
+the original is in my computer
 
 EXEC sp_columns employe;  ->To view the description of the tables in the database 
 
