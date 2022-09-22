@@ -22,12 +22,14 @@ public class Serialize implements Serializable  {
 		String name=new String("Makesh");
 		String s=new String("Ravindran");
 		try{
+		
 		FileOutputStream fin =new FileOutputStream("C:\\Users\\91790\\workspace\\txt.txt");  
 	ObjectOutputStream oos=new ObjectOutputStream(fin);
 	oos.writeObject(name);
 	oos.writeObject(s);
 	oos.close();
 	fin.close();
+	
 		}
 		catch(Exception e) {
 			System.out.println("No permission to edit the file");
@@ -38,6 +40,7 @@ public class Serialize implements Serializable  {
 			FileInputStream fis=new FileInputStream("C:\\Users\\91790\\workspace\\txt.txt");
 			ObjectInputStream ois=new ObjectInputStream(fis);
 			System.out.println("Deserialized");
+			
 			 name1=(String) ois.readObject();
 			 name2=(String) ois.readObject();
 			System.out.println(name1);
